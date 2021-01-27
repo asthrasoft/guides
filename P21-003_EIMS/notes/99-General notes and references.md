@@ -1,7 +1,7 @@
 ---
 title: 99-General notes and references
 created: '2021-01-04T16:49:19.472Z'
-modified: '2021-01-19T20:27:05.436Z'
+modified: '2021-01-24T12:20:08.521Z'
 ---
 
 # 99-General notes and references
@@ -39,6 +39,13 @@ Useful reads
 
 Good reads
 1. http://highscalability.com/blog/2016/1/11/a-beginners-guide-to-scaling-to-11-million-users-on-amazons.html
+2. Lazy-loading images
+* https://www.solodev.com/blog/web-design/using-lazy-load-images-within-a-bootstrap-grid.stml
+* https://github.com/toddmotto/echo
+* https://css-tricks.com/preventing-content-reflow-from-lazy-loaded-images/
+* http://blog.dynamicdrive.com/5-brilliant-ways-to-lazy-load-images-for-faster-page-loads/
+* http://www.landmarkmlp.com/js-plugin/owl.carousel/demos/lazyLoad.html 
+
 
 
 
