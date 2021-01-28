@@ -1,7 +1,7 @@
 ---
 title: 99-General notes and references
 created: '2021-01-04T16:49:19.472Z'
-modified: '2021-01-24T12:20:08.521Z'
+modified: '2021-01-28T17:35:00.402Z'
 ---
 
 # 99-General notes and references
@@ -19,13 +19,18 @@ Getting started
 * https://bezkoder.com/django-mongodb-crud-rest-framework/
 
 Specifically multi-tenanting with MongoDB
-* https://stackoverflow.com/questions/2748825/what-is-the-recommended-approach-towards-multi-tenant-databases-in-mongodb
 * https://www.mongodb.com/presentations/managing-multitenant-saas-applications-at-scale
+* https://stackoverflow.com/questions/2748825/what-is-the-recommended-approach-towards-multi-tenant-databases-in-mongodb
 * https://themongodba.wordpress.com/2014/04/20/building-fast-scalable-multi-tenant-apps-with-mongodb/
 * https://s3.amazonaws.com/info-mongodb-com/MongoDB_as_a_Service.pdf
 Using MongoDB in memory
 * https://docs.mongodb.com/manual/core/inmemory/
 * https://dzone.com/articles/how-use-mongodb-pure-memory-db
+
+MongoDB Tutorials
+* https://beginnersbook.com/2017/09/mongodb-tutorial/
+* https://docs.mongodb.com/manual/tutorial/
+* https://blog.exploratory.io/an-introduction-to-mongodb-query-for-beginners-bd463319aa4c
 
 Interesting Libraries
 * a lightweight microservices library on Python asyncio - https://pypi.org/project/tomodachi/
