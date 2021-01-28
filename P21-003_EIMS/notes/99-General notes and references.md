@@ -1,7 +1,7 @@
 ---
 title: 99-General notes and references
 created: '2021-01-04T16:49:19.472Z'
-modified: '2021-01-28T17:35:00.402Z'
+modified: '2021-01-28T18:40:45.838Z'
 ---
 
 # 99-General notes and references
@@ -31,6 +31,13 @@ MongoDB Tutorials
 * https://beginnersbook.com/2017/09/mongodb-tutorial/
 * https://docs.mongodb.com/manual/tutorial/
 * https://blog.exploratory.io/an-introduction-to-mongodb-query-for-beginners-bd463319aa4c
+
+Working with Celery
+* https://www.toptal.com/python/orchestrating-celery-python-background-jobs
+* https://github.com/alanjds/celery-serverless
+* https://louisloudotcom.wordpress.com/2018/01/13/celery-how-to-build-your-own-aws-lambda-part-1-some-concepts/
+* https://cheesecakelabs.com/blog/asynchronous-task-queue-django-celery-aws-sqs/
+* https://medium.com/@emaildelivery/serverless-pitfalls-issues-you-may-encounter-running-a-start-up-on-aws-lambda-f242b404f41c
 
 Interesting Libraries
 * a lightweight microservices library on Python asyncio - https://pypi.org/project/tomodachi/
