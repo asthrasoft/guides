@@ -1,6 +1,7 @@
 <guides>
-<guide tag="P00-000-GEN">Praveen's Daily Journal</guide>
-<guide tag="P21-001-AIML">All things about AI and ML</guide>
-<guide tag="P21-002_I4IAS">Cognitive Interview System</guide>
-<guide tag="P21-003_EIMS">IT infrastructure Monitoring</guide>
+<guide tag="001-muti-tenant-saas">Building a Multi-tenant SaaS Platform</guide>
+<guide tag="002-iot-streaming">Working with IoT Data Streams</guide>
+<guide tag="003-hybrid-platform">Hybrid (Cloud and Onprem) Architectures</guide>
+<guide tag="004-cognitive-qna">Cognitive Question and Answer Platform</guide>
+<guide tag="005-webrtc-conf">WebRTC based Collaboration</guide>
 </guides>

@@ -1,7 +1,7 @@
 ---
 title: 99-General notes and references
 created: '2021-01-04T16:49:19.472Z'
-modified: '2021-01-28T18:40:45.838Z'
+modified: '2021-02-03T01:01:23.240Z'
 ---
 
 # 99-General notes and references
@@ -17,6 +17,18 @@ Getting started
 * https://cloudonaut.io/5-aws-mistakes-you-should-avoid/
 * ODM with DJango and MongoDB - https://www.freecodecamp.org/news/using-django-with-mongodb-by-adding-just-one-line-of-code-c386a298e179/
 * https://bezkoder.com/django-mongodb-crud-rest-framework/
+
+General Multi-tenancy
+* https://www.clickittech.com/saas/multi-tenant-architecture/
+* https://www.clickittech.com/saas/single-tenant-multi-tenant/
+* https://www.clickittech.com/saas/saas-tech-stack/
+* https://12factor.net/
+* https://www.freecodecamp.org/news/python-microservices-course/
+
+DJango Rest-Framework (microservices)
+* https://www.pluralsight.com/guides/develop-a-microservice-api-with-django-rest-framework-(drf)
+* https://www.django-rest-framework.org/
+* https://cheesecakelabs.com/blog/asynchronous-task-queue-django-celery-aws-sqs/
 
 Specifically multi-tenanting with MongoDB
 * https://www.mongodb.com/presentations/managing-multitenant-saas-applications-at-scale
