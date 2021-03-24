@@ -1,0 +1,95 @@
+'use strict';
+
+// The sumerian object can be used to access Sumerian engine
+// types.
+//
+/* global sumerian */
+
+// Called when play mode starts.
+//
+function setup(args, ctx) {
+}
+
+// Called on every physics update, after setup(). When used in a
+// ScriptAction, this function is called only while the state
+// containing the action is active.
+//
+// For the best performance, remove this function if it is not
+// used.
+//
+function fixedUpdate(args, ctx) {
+}
+
+// Called on every render frame, after setup(). When used in a
+// ScriptAction, this function is called only while the state
+// containing the action is active.
+//
+// For the best performance, remove this function if it is not
+// used.
+//
+function update(args, ctx) {
+}
+
+// Called after all script "update" methods in the scene has
+// been called. When used in a ScriptAction, this function is
+// called only while the state containing the action is active.
+//
+// For the best performance, remove this function if it is not
+// used.
+//
+function lateUpdate(args, ctx) {
+}
+
+// When used in a ScriptAction, called when a state is entered.
+// Use ctx.transitions.success() to trigger the On<State>Success transition
+// and ctx.transitions.failure() to trigger the On<State>Failure transition
+// 
+// 
+
+
+function enter(args, ctx) {
+	console.log("Inside Speech Init");
+
+	console.log(ctx.world.attributes);
+	if (ctx.world.attributes.count > 0){
+		console.log("Setting Attributes");
+		ctx.entityData.id = ctx.world.attributes.get("interview_id");
+		ctx.entityData.name = ctx.world.attributes.get("name");
+		ctx.entityData.topic = ctx.world.attributes.get("topic");
+		ctx.entityData.qcount = ctx.world.attributes.get("qcount");
+	}
+	else {
+		console.log("Setting default test values");
+		ctx.entityData.id = new Date().valueOf();
+		ctx.entityData.name = "John Doe";
+		ctx.entityData.topic = "Constitution";
+		ctx.entityData.qcount = 4;
+	}
+	ctx.entityData.QState = 0;
+		
+	ctx.entityData.FUQURL = "https://maya.asthra.net/";
+	ctx.entityData.hostVoice = "Brian";
+	// /start?id=TEST01&topic=Constitution&qcount=4
+	// /next?id=TEST01&res=UserResponse
+	// /transcript?id=TEST01	
+
+	console.log("Speech Init Done");	
+}
+
+// When used in a ScriptAction, called when a state is exited.
+//
+//
+//
+//
+
+function exit(args, ctx) {
+}
+
+// Called when play mode stops.
+//
+function cleanup(args, ctx) {
+}
+
+// Defines script parameters.
+//
+var parameters = [];

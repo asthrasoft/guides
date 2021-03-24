@@ -1,0 +1,5 @@
+https://www.sciencedirect.com/topics/computer-science/continuous-speech
+https://www.twilio.com/blog/speech-recognition-browser-web-speech-api
+
+
+https://www.google.com/intl/en/chrome/demos/speech.html

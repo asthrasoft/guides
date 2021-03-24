@@ -1,0 +1,110 @@
+'use strict';
+
+// The sumerian object can be used to access Sumerian engine
+// types.
+//
+/* global sumerian */
+
+// Called when play mode starts.
+//
+function setup(args, ctx) {
+}
+
+// Called on every physics update, after setup(). When used in a
+// ScriptAction, this function is called only while the state
+// containing the action is active.
+//
+// For the best performance, remove this function if it is not
+// used.
+//
+function fixedUpdate(args, ctx) {
+}
+
+// Called on every render frame, after setup(). When used in a
+// ScriptAction, this function is called only while the state
+// containing the action is active.
+//
+// For the best performance, remove this function if it is not
+// used.
+//
+function update(args, ctx) {
+}
+
+// Called after all script "update" methods in the scene has
+// been called. When used in a ScriptAction, this function is
+// called only while the state containing the action is active.
+//
+// For the best performance, remove this function if it is not
+// used.
+//
+function lateUpdate(args, ctx) {
+}
+
+// When used in a ScriptAction, called when a state is entered.
+// Use ctx.transitions.success() to trigger the On<State>Success transition
+// and ctx.transitions.failure() to trigger the On<State>Failure transition
+// 
+// 
+
+
+function enter(args, ctx) {
+	//console.log("01_Inside Speech Init");
+	//?interview_id=TESTING123&name=Praveen&topic=Constitution&qcount=4
+	//https://us-east-1.sumerian.aws/52acaa3952574a0486ee051df4221861.scene?interview_id=TESTING123&name=Praveen&topic=Constitution&qcount=4
+	const params = new URLSearchParams(window.location.search)
+	//console.log(ctx.world.attributes);
+	if (ctx.world.attributes.size > 0){
+		console.log("01_SettingFromAttributes");
+		ctx.entityData.id = ctx.world.attributes.get("interview_id");
+		ctx.entityData.name = ctx.world.attributes.get("name");
+		ctx.entityData.topic = ctx.world.attributes.get("topic");
+		ctx.entityData.qcount = ctx.world.attributes.get("qcount");
+	}
+	else if (params.has('interview_id')){
+		console.log("01_FromQueryStrings");
+		ctx.entityData.id = params.get('interview_id');
+		ctx.entityData.name = params.get('name');
+		ctx.entityData.topic = params.get('topic');
+		ctx.entityData.qcount = params.get('qcount');
+	}
+	else {
+		console.log("01_SettingDefaultTestValues");
+		ctx.entityData.id = new Date().valueOf();
+		ctx.entityData.name = "John Doe";
+		ctx.entityData.topic = "Constitution";
+		ctx.entityData.qcount = 4;
+	}
+	ctx.entityData.ccount = 0;
+		
+	ctx.entityData.FUQURL = "https://maya.asthra.net";
+	ctx.entityData.hostVoice = "Brian";
+	// /start?id=TEST01&topic=Constitution&qcount=4
+	// /next?id=TEST01&res=UserResponse
+	// /transcript?id=TEST01	
+
+	const evt = new CustomEvent("START_INTERVIEW", {
+		bubbles: true, 
+		detail: {message: "Interview Started"}
+	});
+	ctx.domElement.dispatchEvent(evt);
+
+	console.log("01_Speech Init Done");	
+}
+
+// When used in a ScriptAction, called when a state is exited.
+//
+//
+//
+//
+
+function exit(args, ctx) {
+}
+
+// Called when play mode stops.
+//
+function cleanup(args, ctx) {
+}
+
+// Defines script parameters.
+//
+var parameters = [];

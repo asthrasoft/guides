@@ -1,0 +1,29 @@
+us-east-1:c7c96b1f-7990-415c-b088-cc7f7bbf1b9f
+
+Interview-Start
+AWS SDK
+Wait 6 (Pan camera)
+State 2 - SpeechIntro
+
+Interview-Progress
+Init
+- SpeechInit
+On S Key pressed
+InitWait (Wait to sit)
+HostSpeaking
+- (ExecScript) SpeechHost
+(On t)
+Recording
+- (ExecScript) RecordStart
+Listening
+- (ExecScript) RecordContinue
+(On n)
+Listening
+- (ExecScript) RecordContinue
+(On n)
+Processing
+- (ExecScript) SpeechUser
+InitWait and back to HostSpeaking
+(On l)
+Done
+- (ExecScript) InterviewExit

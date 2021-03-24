@@ -1,0 +1,19 @@
+AWS SDK
+Maya Response 
+- Transition on NextFrame
+- (ExecScript) HostSpeech
+State 4
+- On Space Key Down
+StartRecord
+- (ExecScript) StartRecord
+State2
+- StopRecord
+- KeyDown - ArrowUp
+State2
+- StopRecord
+- KeyDown - ArrowUp
+State5
+- ctx.worldData.recogn.stop();
+UserResponse
+- UserSpeech
+Wait and back to MayaResponse.

@@ -1,0 +1,73 @@
+'use strict';
+
+// The sumerian object can be used to access Sumerian engine
+// types.
+//
+/* global sumerian */
+
+// Called when play mode starts.
+//
+function setup(args, ctx) {
+}
+
+// Called on every physics update, after setup(). When used in a
+// ScriptAction, this function is called only while the state
+// containing the action is active.
+//
+// For the best performance, remove this function if it is not
+// used.
+//
+function fixedUpdate(args, ctx) {
+}
+
+// Called on every render frame, after setup(). When used in a
+// ScriptAction, this function is called only while the state
+// containing the action is active.
+//
+// For the best performance, remove this function if it is not
+// used.
+//
+function update(args, ctx) {
+}
+
+// Called after all script "update" methods in the scene has
+// been called. When used in a ScriptAction, this function is
+// called only while the state containing the action is active.
+//
+// For the best performance, remove this function if it is not
+// used.
+//
+function lateUpdate(args, ctx) {
+}
+
+// When used in a ScriptAction, called when a state is entered.
+// Use ctx.transitions.success() to trigger the On<State>Success transition
+// and ctx.transitions.failure() to trigger the On<State>Failure transition
+function enter(args, ctx) {
+	console.log("Inside start record");
+	SpeechRecognition = webkitSpeechRecognition || SpeechRecognition;
+	let finalTranscript = '';
+	let recognition = new SpeechRecognition();
+	recognition.interimResults = false;
+	recognition.maxAlternatives = 1;
+	recognition.continuous = true; 
+	ctx.worldData.recogn=recognition;
+	ctx.worldData.recogn.start();
+	ctx.worldData.transcript = "";
+	ctx.worldData.index=0;
+	ctx.transitions.success();
+}
+
+// When used in a ScriptAction, called when a state is exited.
+//
+function exit(args, ctx) {
+}
+
+// Called when play mode stops.
+//
+function cleanup(args, ctx) {
+}
+
+// Defines script parameters.
+//
+var parameters = [];

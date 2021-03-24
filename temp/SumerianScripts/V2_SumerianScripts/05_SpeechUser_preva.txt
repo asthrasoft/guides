@@ -1,0 +1,131 @@
+'use strict';
+
+
+// The sumerian object can be used to access Sumerian engine
+// types.
+//
+/* global sumerian */
+
+// Called when play mode starts.
+//
+function setup(args, ctx) {
+
+}
+
+// Called on every physics update, after setup(). When used in a
+// ScriptAction, this function is called only while the state
+// containing the action is active.
+//
+// For the best performance, remove this function if it is not
+// used.
+//
+function fixedUpdate(args, ctx) {
+}
+
+// Called on every render frame, after setup(). When used in a
+// ScriptAction, this function is called only while the state
+// containing the action is active.
+//
+// For the best performance, remove this function if it is not
+// used.
+//
+function update(args, ctx) {
+}
+
+// Called after all script "update" methods in the scene has
+// been called. When used in a ScriptAction, this function is
+// called only while the state containing the action is active.
+//
+// For the best performance, remove this function if it is not
+// used.
+//
+function lateUpdate(args, ctx) {
+}
+
+// When used in a ScriptAction, called when a state is entered.
+// Use ctx.transitions.success() to trigger the On<State>Success transition
+// and ctx.transitions.failure() to trigger the On<State>Failure transition
+
+// var xhr = new XMLHttpRequest();
+
+function enter(args, ctx) {
+	console.log("05_Inside_User_Speech");
+
+	var url = ctx.entityData.FUQURL; 
+	var xhr = new XMLHttpRequest();	
+	//xhr.withCredentials = true;	
+
+	xhr.onreadystatechange = (e) => {
+		if(xhr.status==200){
+			ctx.entityData.hostResponse = xhr.responseText;	
+			//console.log("05_xhr.responseText : ", ctx.entityData.hostResponse);		
+			//ctx.worldData.allowSpeech = false;
+			if (ctx.entityData.hostResponse!=undefined && ctx.entityData.hostResponse!=""){
+				console.log("05_hostResponse : ", ctx.entityData.hostResponse);
+				ctx.transitions.success();
+				ctx.entityData.ccount += 1;
+			}
+		}
+		else
+		{
+			console.log("05_Request Failed. Code not 200.", xhr.status);
+		}
+	};
+	
+	console.log("05_Curr Count : " + ctx.entityData.ccount);
+	if (ctx.entityData.ccount == 0){
+		// /start?id=TEST01&topic=Constitution&qcount=4
+		url += "/start?id=" + ctx.entityData.id + "&topic=" + ctx.entityData.topic + "&qcount=" + ctx.entityData.qcount;
+		//console.log("sending : ", url);
+		console.log("05_sending : ", url);
+		xhr.open('GET',url,true);
+		xhr.send();
+	}
+	else{
+		var userResponse = ctx.worldData.transcript;
+		
+		if (userResponse == "") {
+			//NEVER Send a request with a blank userResponse. However, if we dont send the event here, then we get stuck in this state.
+			ctx.worldData.recogn.onresult = (event) => {
+				console.log("05_transcription results event");
+		
+				if(event.results[event.results.length-1].isFinal){
+					for(var i=ctx.worldData.index;i<event.results.length;i++){
+						if(event.results[i].isFinal){						
+							ctx.worldData.transcript+=event.results[i][0].transcript;					
+						}
+					}
+					//console.log("***05_transcriptData***",ctx.worldData.transcript);
+					ctx.worldData.index=event.results.length;
+					userResponse = ctx.worldData.transcript;
+					// /next?id=TEST01&res=UserResponse
+					console.log("05_User Resp : " + userResponse);
+					url += "/next?id=" + ctx.entityData.id + "&res=" + encodeURIComponent(userResponse);
+					xhr.open('GET',url,true);
+					xhr.send();
+				}		
+			};
+		}
+		else {
+			console.log("05_User Resp : " + userResponse);
+			url += "/next?id=" + ctx.entityData.id + "&res=" + encodeURIComponent(userResponse);
+			xhr.open('GET',url,true);
+			xhr.send();
+		}
+	}				
+}
+
+
+// When used in a ScriptAction, called when a state is exited.
+//
+function exit(args, ctx) {
+}
+
+// Called when play mode stops.
+//
+function cleanup(args, ctx) {
+}
+
+// Defines script parameters.
+//
+var parameters = [];
